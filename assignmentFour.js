@@ -1,24 +1,15 @@
 function calculateTax(income, expenses) {
-    
-    if(0 <= income && 0 <= expenses && income >= expenses) {
 
+    if(0 <= income && 0 <= expenses && income >= expenses) {
         return monthlyTax =(income - expenses)*0.20;
     }
     else {
-        
         return "Invalid Input";
     }
  }
 
-// console.log(calculateTax(10000,3000));
-// console.log(calculateTax(34000,1753));
-// console.log(calculateTax(5000,1500));
-// console.log(calculateTax(7000,7000));
-// console.log(calculateTax(-5000,2000));
-// console.log(calculateTax(6000,-1500));
 
 
-// problem -2
 
 
 function sendNotification(email) {
@@ -32,13 +23,11 @@ function sendNotification(email) {
     }
     return userName + " sent you an email from "+domainName;
 }
-    console.log(sendNotification("shafriki.cse@gmail.com"));
-    console.log(sendNotification("@gmail.com"));
-    console.log(sendNotification("shafriki123.cse@gmail.com"));
-    console.log(sendNotification("shafriki.csegmail.com"));
 
 
-// problem 3
+
+
+
 function checkDigitsInName(name) {
 
     if(typeof name !== "string") {
@@ -53,11 +42,11 @@ function checkDigitsInName(name) {
             return false;
     }
 }
-// console.log(checkDigitsInName("shimul2300"));
-// console.log(checkDigitsInName("shimul"));
-// console.log(checkDigitsInName(["raj"]));
 
-// problem 4
+
+
+
+
 function calculateFinalScore(obj) {
 
     let name =obj.name;
@@ -77,18 +66,24 @@ function calculateFinalScore(obj) {
     return isAdmit;  
 }
 
-// console.log(calculateFinalScore({ name: "Rajib", testScore: 45, schoolGrade: 25, isFFamily: true })); // true
-// console.log(calculateFinalScore({ name: "Rajib", testScore: 45, schoolGrade: 25, isFFamily: false })); // false
-// console.log(calculateFinalScore("hello")); // Invalid Input
-// console.log(calculateFinalScore({ name: "Rajib", testScore: 15, schoolGrade: 25, isFFamily: true })); // false
 
-// problem 5
+
+
+
 function waitingTime(waitingTimes , serialNumber) {
-    // You have to write your code here
-    if(Array.isArray(waitingTime) === false || typeof serialNumber !== "number") {
-        return "Invalid Input";
+    if (typeof waitingTimes !== "object" || typeof serialNumber !== "number") {
+      return "Invalid Input";
     }
+    let totalTime = 0;
+    for (let i = 0; i < waitingTimes.length; i++) {
+        totalTime += waitingTimes[i];
     }
+    let avgTime = Math.round(totalTime / waitingTimes.length);
+    if (waitingTimes.length >= serialNumber - 1) {
+      return 0;
+    } else {
+      return (serialNumber - 1 - waitingTimes.length) * avgTime;
+    }
+  }
 
-     
     
